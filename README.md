@@ -1,8 +1,8 @@
-Приложение доступно по адресу: https://fun-box-test-app.herokuapp.com/
+Приложение доступно по адресу: https://fun-box-test-app.herokuapp.com/ &nbsp;
 
-**Установка и запуск**
-Установить пакеты командой: yarn install
-Запустить приложение командлй yarn start
+**Установка и запуск** &nbsp;
+Установить пакеты командой: yarn install &nbsp;
+Запустить приложение командлй yarn start &nbsp;
 
 
 **Вопрос №1**
