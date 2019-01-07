@@ -26,8 +26,9 @@ export default class PointInput extends PureComponent {
    */
   createPoint(event) {
     event.preventDefault();
-    if (this.state.pointName) {
-      this.props.createPoint(this.state.pointName);
+    let pointName = this.state.pointName.trim();
+    if (pointName) {
+      this.props.createPoint(pointName);
       this.setState({
         pointName: ''
       });
