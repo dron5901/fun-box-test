@@ -1,68 +1,130 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Вопрос №1**
 
-## Available Scripts
+Расскажите, чем, на ваш взгляд, отличается хорошее клиентское приложение от плохого с точки зрения
 
-In the project directory, you can run:
+- пользователя;
+- менеджера проекта;
+- дизайнера;
+- верстальщика;
+- серверного программиста.
 
-### `npm start`
+**Ответ**
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Для пользователя:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Интуитивно-понятный интерфейс;
+- Скорость работы;
+- Приложение должно иметь именно тот функционал, который поможет решить пользователю свою проблему.
 
-### `npm test`
+Для менеджера проекта:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Быстрое внедрение нового функционала;
+- Реализация всех интересных &quot;хотелок&quot; пользователей.
 
-### `npm run build`
+Для дизайнера:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Простота и лаконичность дизайна
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Для верстальщика:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Убрать поддержку старых и не соответствующих стандартам браузеров
+- Использовать побольше новых возможностей html и css(grid&#39;s, flexbox)
+- Использование стайлгайдов
 
-### `npm run eject`
+Для серверного программиста:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Приложение должно работать так, как и задумано. На все запросы по API должен приходить корректный ответ с правильными статусами.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Вопрос №2**
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Опишите основные особенности разработки крупных многостраничных сайтов, функциональность которых может меняться в процессе реализации и поддержки. Расскажите о своем опыте работы над подобными сайтами: какие подходы, инструменты и технологии вы применяли на практике, с какими проблемами сталкивались и как их решали.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Ответ**
 
-## Learn More
+Для больших проектов очень важно в самом начале спроектировать такую архитектуру, при которой любые доработки функционала не будут стоить дорого. Разработать единые стандарты разработки, стайлгайды, с помощью которых, новые люди, приходящие на проект смогут очень быстро влиться в работу. Проводить планерки, ревью кода.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+На практике, самая большая проблема, с которой я встречался, это необдуманное наращивание функционала. Не секрет, что пользователям нужен только тот функционал, который им нужен для решения их задач/проблем. Еще одна проблема с которой часто встречаешься - это быстродействие системы. Первый мой проект был написал на angularjs, который начинал замедлять работу при количестве ватчеров больше \&gt; 2000. Узкие места переписывались на framework&#39;e react. В командной разработке очень важно общаться между собой, зачастую многие проблемы могут решиться еще на стадии обсуждения.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Вопрос №3**
 
-### Code Splitting
+При разработке интерфейсов с использованием компонентной архитектуры часто используются термины Presentational Сomponents и Сontainer Сomponents. Что означают данные термины? Зачем нужно такое разделение, какие у него есть плюсы и минусы?
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+**Ответ**
 
-### Analyzing the Bundle Size
+Presentational Сomponents - компоненты, которые ничего не знают о состоянии, не должны изменять данные, не зависят от остальной части приложения.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Сontainer Сomponents - компоненты, которые имеют состояние и служат источником данных.
 
-### Making a Progressive Web App
+Преимущества:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Лучшее понимание приложения
+- Возможность повторного использования компонентов.
 
-### Advanced Configuration
+**Вопрос №4**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Как устроено наследование в JS? Расскажите о своем опыте реализации JS- наследования без использования фреймворков.
 
-### Deployment
+**Ответ**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+В JS используется прототипное наследование. В es6 добавили ключевое слово class, которое по сути является синтаксическим сахаром над прототипной моделью.
 
-### `npm run build` fails to minify
+В моем последнем проекте главной сущностью был класс DataSource, от которого наследовались другие ИД. (ActionDataSource, QueryDataSource, EnumDataSource, QueryDataSource, RestDataSource). Для каждого источника данных реализован провайдер, который генерирует код вызова ИД, и структуру входных/выходных данных, если в кратце.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**Вопрос №5**
+
+Какие библиотеки можно использовать для написания тестов end-to-end во фронтенде? Расскажите о своем опыте тестирования веб-приложений.
+
+**Ответ**
+
+Для end-to-end приложения можно использовать selenium, protractor.
+
+В своих приложения использовал в основном unit-тестирование и интеграционное тестирование. Для проектов на ангуляр использовал karma+jasmine. Для реакта jest+enzyme.
+
+**Вопрос №6**
+
+Вам нужно реализовать форму для отправки данных на сервер, состоящую из нескольких шагов. В вашем распоряжении дизайн формы и статичная верстка, в которой не показано, как форма должна работать в динамике. Подробного описания, как должны вести себя различные поля в зависимости от действий пользователя, в требованиях к проекту нет. Ваши действия?
+
+**Ответ**
+
+Разработать 3-5 вариантов решения задачи. Обсудить и выбрать наиболее оптимальный вариант с непосредственным руководителем.
+
+**Вопрос №7**
+
+Расскажите, какие инструменты помогают вам экономить время в процессе написания, проверки и отладки кода.
+
+**Ответ**
+
+IDE, линтеры, валидаторы, сборщики проекта c autoreload, google chrome
+
+**Вопрос №8**
+
+Какие ресурсы вы используете для развития в профессиональной сфере? Приведите несколько конкретных примеров (сайты, блоги и так далее). Какие ещё области знаний, кроме тех, что непосредственно относятся к работе, вам интересны?
+
+**Ответ**
+
+До недавнего времени очень много полезной информации черпал с habr.com. В последнее время использую medium.com. Подписан на твиттер js разработчиков. Смотрю уроки на egghead.io и [https://www.freecodecamp.org/](https://www.freecodecamp.org/)
+
+В IT так же интересна информация по ИИ. В свободное время, футбол, спортзал, прогулки
+
+**Вопрос №9**
+
+Расскажите нам немного о себе и предоставьте несколько ссылок на последние работы, выполненные вами.
+
+**Ответ**
+
+Начал заниматься программирование с 17 лет. Начинал разработку с небольших web-приложений. В 2013 году устроился на работу в компанию Аспект. Как ведущий web-разработчик участвовал в 3 проектах: «Дома Москвы», «система наблюдения за состоянием линий производства завода Технониколь», разработка проекта компании Aspect platform. В свободное время люблю сходить в спортивный зал.
+
+Открытые проекты:
+
+- [http://dom.mos.ru/](http://dom.mos.ru/) - разработка личного кабинета компаний
+- [http://www.aspect-systems.ru](http://www.aspect-systems.ru) - разработка сайта
+- [https://klad-monet.com/](https://klad-monet.com/) - разработка сайта
+- [http://elvirapedikura.com/](http://elvirapedikura.com/) - разработка сайта
+
+Закрытые проекты:
+
+- Aspect platform - aspect designer
+- Aspect platform - aspect dm
+- Aspect platform - aspect esb
+
+Информация по ним [http://www.aspect-systems.ru/index.php/products/aip/](http://www.aspect-systems.ru/index.php/products/aip/)
